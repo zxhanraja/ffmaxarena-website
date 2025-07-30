@@ -78,8 +78,8 @@ const Footer: React.FC = () => {
                         </p>
                          <div className="flex space-x-4">
                             <a href="https://www.instagram.com/ffmaxarena?igsh=MTV5bHMwdGM2cHplcA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors"><InstagramIcon className="w-6 h-6" /></a>
-                            <a href="https://t.me/+7gkVK7l3GiI3YjJ" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors"><TelegramIcon className="w-6 h-6" /></a>
-                            <a href="https://discord.gg/SC5ACaRv" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors"><DiscordIcon className="w-6 h-6" /></a>
+                            <a href="https://t.me/+-D3BM7H7DWkzMTdl" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors"><TelegramIcon className="w-6 h-6" /></a>
+                            <a href="https://discord.gg/jHsF7S8vwy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors"><DiscordIcon className="w-6 h-6" /></a>
                         </div>
                          <div>
                             <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Stay Updated</h3>

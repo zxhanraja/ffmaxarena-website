@@ -179,11 +179,21 @@ const ShareModal: React.FC<{ tournament: Tournament; onClose: () => void }> = ({
                             </a>
                         ))}
                     </div>
-                     <div className="relative">
-                        <input type="text" readOnly value={tournamentUrl} className="w-full bg-white/5 border border-white/20 rounded-lg pl-4 pr-24 py-3 text-white" />
-                        <button onClick={handleCopy} className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-2 px-3 py-1.5 rounded-md bg-cyan-500 text-black text-sm font-semibold hover:bg-cyan-400 transition-colors">
+                     <div className="flex items-center space-x-2">
+                        <input 
+                            type="text" 
+                            readOnly 
+                            value={tournamentUrl} 
+                            className="flex-grow w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white truncate"
+                            aria-label="Tournament URL"
+                        />
+                        <button 
+                            onClick={handleCopy} 
+                            className="flex-shrink-0 flex items-center gap-2 px-4 py-3 rounded-lg bg-cyan-500 text-black text-sm font-semibold hover:bg-cyan-400 transition-colors"
+                            aria-label={copied ? 'URL Copied' : 'Copy URL'}
+                        >
                            {copied ? <CheckCircleIcon className="w-5 h-5"/> : <CopyIcon className="w-5 h-5"/>}
-                           {copied ? 'Copied!' : 'Copy'}
+                           <span>{copied ? 'Copied!' : 'Copy'}</span>
                         </button>
                     </div>
                 </div>
