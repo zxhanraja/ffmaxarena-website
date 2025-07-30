@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.7.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.53.0",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.0.6"
+  }
+}
+</script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3e%3cg transform='translate(4 4)' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M6 9H4.5a2.5 2.5 0 0 1 0-5H6'/%3e%3cpath d='M18 9h1.5a2.5 2.5 0 0 0 0-5H18'/%3e%3cpath d='M4 22h16'/%3e%3cpath d='M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22'/%3e%3cpath d='M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22'/%3e%3cpath d='M18 2H6v7a6 6 0 0 0 12 0V2Z'/%3e%3c/g%3e%3c/svg%3e">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' cdn.tailwindcss.com https://esm.sh https://cdn.jsdelivr.net;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      img-src 'self' data: https: api.dicebear.com;
+      font-src 'self' https://fonts.gstatic.com;
+      connect-src 'self' *.supabase.co wss://*.supabase.co https://api.web3forms.com https://esm.sh;
+      frame-src 'self';
+      object-src 'none';
+      form-action 'self' https://api.web3forms.com;
+      base-uri 'self';
+    ">
+    <title>FFMaxArena | India's Free Fire Max Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600&display=swap');
+      :root { --primary: 194 97% 41%; --secondary: 215 28% 17%; --background: 224 71% 4%; --card: 222 84% 5%; --text: 210 40% 98%; }
+      body { background-color: #000000; color: #f9fafb; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      .font-orbitron { font-family: 'Orbitron', sans-serif; }
+      .text-glow { text-shadow: 0 0 8px hsl(var(--primary) / 0.7), 0 0 20px hsl(var(--primary) / 0.5); }
+      .soft-glow { box-shadow: 0 0 15px hsl(var(--primary) / 0.5); }
+      .card-glow-border { border: 1px solid hsl(var(--primary) / 0.2); }
+      .glassmorphic { background-color: rgba(12, 15, 28, 0.65); backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.08); }
+      .shimmer-bg { background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent); background-size: 200% 100%; animation: shimmer 1.5s infinite linear; }
+      
+      @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+      @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+      @keyframes flashing-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+      @keyframes pulse-glow { 0%, 100% { filter: drop-shadow(0 0 10px hsl(var(--primary) / 0.6)); } 50% { filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.9)); } }
+      @keyframes card-enter { from { opacity: 0; transform: translateY(20px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      @keyframes form-step-enter { from { opacity: 0; transform: translateX(15px); } to { opacity: 1; transform: translateX(0); } }
+      @keyframes toast-in { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+      @keyframes toast-out { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(100%); opacity: 0; } }
+      @keyframes subtle-pan { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+      @keyframes projector-pulse { 0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.7; } 50% { transform: translateX(-50%) scale(1.05); opacity: 1; } }
+      @keyframes light-ray-pan { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+      .animate-subtle-pan { animation: subtle-pan 25s infinite ease-in-out; }
+      .animate-card-enter { animation: card-enter 0.5s ease-out forwards; }
+      .animate-form-step-enter { animation: form-step-enter 0.4s ease-out forwards; }
+      .animate-pulse-glow { animation: pulse-glow 2s infinite ease-in-out; }
+      .animate-float { animation: float 3s infinite ease-in-out; }
+      .animate-flashing-dot { animation: flashing-dot 1.2s infinite ease-in-out; }
+      .animate-projector-pulse { animation: projector-pulse 2.5s infinite ease-in-out; }
+      .animate-light-ray-pan {
+        background-image: 
+          linear-gradient(90deg, transparent 0%, hsl(var(--primary) / 0.04) 50%, transparent 100%),
+          linear-gradient(90deg, transparent 30%, hsl(var(--secondary) / 0.02) 80%, transparent 100%);
+        background-size: 300px 100%, 500px 100%;
+        background-repeat: repeat-x;
+        animation: light-ray-pan 15s infinite linear;
+      }
+      #app-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background-color: #000000; z-index: 9999; transition: opacity 0.5s ease-out; }
+      #app-loader.fade-out { opacity: 0; }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="app-loader">
+       <svg class="animate-pulse-glow" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="hsl(var(--primary))" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+        <path d="M4 22h16"></path>
+        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+      </svg>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
