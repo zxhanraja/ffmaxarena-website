@@ -1,7 +1,8 @@
 
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { EyeIcon, EyeOffIcon, LoginBotIcon } from '../components/icons/IconDefs';
+import { useNavigate, Link } from 'react-router-dom';
+import { EyeIcon, EyeOffIcon, LoginBotIcon, ArrowLeftIcon } from '../components/icons/IconDefs';
 import { supabase } from '../supabaseClient';
 import { useNotifier } from '../contexts/NotificationContext';
 import Spinner from '../components/Spinner';
@@ -36,7 +37,7 @@ const LoginPage: React.FC = () => {
     };
     
     return (
-        <div className="flex items-center justify-center text-white py-16 sm:py-24 px-4">
+        <div className="flex items-center justify-center text-white py-16 sm:py-24 px-4 min-h-[calc(100vh-280px)]">
             <div className="w-full max-w-md">
                 <div className="text-center mb-8">
                     <LoginBotIcon 
@@ -108,6 +109,16 @@ const LoginPage: React.FC = () => {
                             </button>
                         </div>
                     </form>
+                </div>
+
+                <div className="text-center mt-8">
+                    <Link 
+                        to="/" 
+                        className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors group"
+                    >
+                        <ArrowLeftIcon className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+                        <span>Back to Main Site</span>
+                    </Link>
                 </div>
             </div>
         </div>
